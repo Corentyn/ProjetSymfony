@@ -24,7 +24,9 @@
                 <td>{{ article.Date ? article.Date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -34,6 +36,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('article_new') }}">Create new</a>
+    {% endif %}
 {% endblock %}
