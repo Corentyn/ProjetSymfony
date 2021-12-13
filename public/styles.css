@@ -1,0 +1,6 @@
+.nav {
+  display: flex;
+  background: black;
+  height: 12em;
+  margin-bottom: 200px;
+}
