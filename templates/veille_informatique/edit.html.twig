@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit VeilleInformatique{% endblock %}
+
+{% block body %}
+    <h1>Edit VeilleInformatique</h1>
+
+    {{ include('veille_informatique/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('veille_informatique_index') }}">back to list</a>
+
+    {{ include('veille_informatique/_delete_form.html.twig') }}
+{% endblock %}

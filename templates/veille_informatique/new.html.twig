@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New VeilleInformatique{% endblock %}
+
+{% block body %}
+    <h1>Create new VeilleInformatique</h1>
+
+    {{ include('veille_informatique/_form.html.twig') }}
+
+    <a href="{{ path('veille_informatique_index') }}">back to list</a>
+{% endblock %}

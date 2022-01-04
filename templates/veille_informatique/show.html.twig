@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VeilleInformatique{% endblock %}
+
+{% block body %}
+    <h1>VeilleInformatique</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ veille_informatique.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ veille_informatique.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ veille_informatique.description }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ veille_informatique.date ? veille_informatique.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Lien</th>
+                <td>{{ veille_informatique.lien }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('veille_informatique_index') }}">back to list</a>
+
+    <a href="{{ path('veille_informatique_edit', {'id': veille_informatique.id}) }}">edit</a>
+
+    {{ include('veille_informatique/_delete_form.html.twig') }}
+{% endblock %}

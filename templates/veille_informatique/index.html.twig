@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VeilleInformatique index{% endblock %}
+
+{% block body %}
+    <h1>VeilleInformatique index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Lien</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for veille_informatique in veille_informatiques %}
+            <tr>
+                <td>{{ veille_informatique.id }}</td>
+                <td>{{ veille_informatique.titre }}</td>
+                <td>{{ veille_informatique.description }}</td>
+                <td>{{ veille_informatique.date ? veille_informatique.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ veille_informatique.lien }}</td>
+                <td>
+                    <a href="{{ path('veille_informatique_show', {'id': veille_informatique.id}) }}">show</a>
+                    <a href="{{ path('veille_informatique_edit', {'id': veille_informatique.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('veille_informatique_new') }}">Create new</a>
+{% endblock %}
